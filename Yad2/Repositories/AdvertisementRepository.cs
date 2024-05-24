@@ -8,53 +8,61 @@ using Yad2.Models;
 namespace Yad2.Repositories;
 
 
-public class AdvertisementRepository {
+public class AdvertisementRepository : IAdvertisementRepository
+{
 
 
     private Yad2Context context;
 
-    public AdvertisementRepository(Yad2Context _context) {
+    public AdvertisementRepository(Yad2Context _context)
+    {
         context = _context;
     }
 
-    public async Task<AdvertisementsModel> CreateAdvertisement(AdvertisementDto dto) {
-       
+    public async Task<AdvertisementsModel> CreateAdvertisement(AdvertisementDto dto)
+    {
+
         var advertisement = dto.ToModel();
         context.Advertisements.Add(advertisement);
         await context.SaveChangesAsync();
 
         // save pictures & address
-        var Pictures = dto.Pictures.Select(p => new Picture() { 
+        var Pictures = dto.Pictures.Select(p => new Picture()
+        {
             Url = p,
-            AdvertisementId = advertisement.Id 
+            AdvertisementId = advertisement.Id
         }).ToList();
         context.Pictures.AddRange(Pictures);
         var addressModel = dto.Address.ToModel();
-        addressModel.AdvertisementId = advertisement.Id;   
+        addressModel.AdvertisementId = advertisement.Id;
         context.Addresses.Add(addressModel);
         await context.SaveChangesAsync();
         return advertisement;
     }
 
-    public async Task<AdvertisementsModel> GetAdvertisement(int id) {
-        var advertisement =  await context.Advertisements
+    public async Task<AdvertisementsModel> GetAdvertisement(int id)
+    {
+        var advertisement = await context.Advertisements
         .Include(a => a.Pictures)
         .Include(a => a.Address)
         .FirstOrDefaultAsync(a => a.Id == id);
-        if(advertisement == null) {
+        if (advertisement == null)
+        {
             throw new Exception("Advertisement not found");
         }
         return advertisement;
     }
 
-    public async Task<List<AdvertisementsModel>> GetAdvertisements() {
+    public async Task<List<AdvertisementsModel>> GetAdvertisements()
+    {
         return await context.Advertisements
         .Include(a => a.Pictures)
         .Include(a => a.Address)
         .ToListAsync();
     }
 
-    public async Task<AdvertisementsModel> UpdateAdvertisement(int id, AdvertisementDto dto) {
+    public async Task<AdvertisementsModel> UpdateAdvertisement(int id, AdvertisementDto dto)
+    {
         var advertisement = await context.Advertisements
         .Include(a => a.Pictures)
         .Include(a => a.Address)
@@ -69,12 +77,13 @@ public class AdvertisementRepository {
         }
         // pictures that were added
         var addedPictures = dto.Pictures.FindAll(p => advertisement.Pictures.Where(pIn => pIn.Url == p).Count() < 1).ToList();
-        if(addedPictures.Count > 0)
-        { 
-            context.Pictures.AddRange(addedPictures.Select(p => new Picture() { Url = p, AdvertisementId = advertisement.Id}));
+        if (addedPictures.Count > 0)
+        {
+            context.Pictures.AddRange(addedPictures.Select(p => new Picture() { Url = p, AdvertisementId = advertisement.Id }));
         }
 
-        if (advertisement == null) {
+        if (advertisement == null)
+        {
             throw new Exception("Advertisement not found");
         }
         advertisement.Update(dto);
@@ -82,12 +91,14 @@ public class AdvertisementRepository {
         return advertisement;
     }
 
-    public async Task<AdvertisementsModel> DeleteAdvertisement(int id) {
+    public async Task<AdvertisementsModel> DeleteAdvertisement(int id)
+    {
         var advertisement = await context.Advertisements
         .Include(a => a.Pictures)
         .Include(a => a.Address)
         .FirstOrDefaultAsync(a => a.Id == id);
-        if(advertisement == null) {
+        if (advertisement == null)
+        {
             throw new Exception("Advertisement not found");
         }
         context.Advertisements.Remove(advertisement);

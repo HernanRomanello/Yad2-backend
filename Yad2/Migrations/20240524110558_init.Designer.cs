@@ -12,8 +12,8 @@ using Yad2.Data;
 namespace Yad2.Migrations
 {
     [DbContext(typeof(Yad2Context))]
-    [Migration("20240524074138_update")]
-    partial class update
+    [Migration("20240524110558_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

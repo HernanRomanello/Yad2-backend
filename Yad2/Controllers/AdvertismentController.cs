@@ -9,9 +9,9 @@ namespace Yad2.Controllers;
 [ApiController]
 public class AdvertisementController : ControllerBase {
 
-    private AdvertisementRepository _repository;
+    private readonly IAdvertisementRepository _repository;
 
-    public AdvertisementController(AdvertisementRepository repository) {
+    public AdvertisementController(IAdvertisementRepository repository) {
         _repository = repository;
     }
 

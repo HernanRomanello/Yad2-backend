@@ -15,11 +15,13 @@ namespace Yad2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddTransient<AdvertisementRepository>();
+            // builder.Services.AddTransient<IAdvertisementRepository,AdvertisementRepository>();
+
+            builder.Services.AddTransient<IAdvertisementRepository, AdvertisementRepository>();
 
             builder.Services.AddDbContext<Yad2Context>(
                   option => option.UseSqlServer(
-                      builder.Configuration.GetConnectionString("Yad2")
+                      builder.Configuration.GetConnectionString("Yad-2")
                   )
               );
             builder.Services.AddIdentity<UserModel, IdentityRole>()
