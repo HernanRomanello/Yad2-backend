@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "DF3o9YMEuDdXxRyRKOVD++0WeyExckietXnVvn6xXNY=",
+  "Hash": "X04MnS3RR5l+JLnvxBuqyMte9MjRbGRFEYj+MD1VuwU=",
   "Source": "Yad2",
   "BasePath": "_content/Yad2",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Yad2\\wwwroot",
+      "Source": "Yad2",
+      "ContentRoot": "C:\\Users\\herna\\Desktop\\Yad 2\\Yad2 Backend\\Yad2\\wwwroot\\",
+      "BasePath": "_content/Yad2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\herna\\Desktop\\Yad 2\\Yad2 Backend\\Yad2\\wwwroot\\uploads\\pic.jpeg",
+      "SourceId": "Yad2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\herna\\Desktop\\Yad 2\\Yad2 Backend\\Yad2\\wwwroot\\",
+      "BasePath": "_content/Yad2",
+      "RelativePath": "uploads/pic.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pic.jpeg"
+    }
+  ]
 }

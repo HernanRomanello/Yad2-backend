@@ -2,9 +2,8 @@
 {
     public class AdvertisementsModel
     {
-        public int Id { get; set; }
+         public int Id { get; set; }
          public AddressModel Address { get; set; }
-
          public string AssetType { get; set; }
 
          public string AssetState { get; set; }
@@ -47,7 +46,7 @@
         public bool Flexible { get; set; }                  // גמיש
         public bool LongTerm { get; set; }                  // לטווח ארוך
 
-        public List<string> Pictures { get; set; }
+        public List<Picture> Pictures { get; set; }
 
         public string Video { get; set; }
 
@@ -57,6 +56,40 @@
 
         public bool StandardizationAccepted { get; set; }
 
+        internal void Update(AdvertisementDto dto)
+        {
 
+            Address.Update(dto.Address);
+            Description = dto.Description;
+            Price = dto.Price;
+            EntryDate =  DateTimeOffset.FromUnixTimeMilliseconds(dto.EntryDate).UtcDateTime;
+            Elevator = dto.Elevator;
+            TotalSquareMeters = dto.TotalSquareMeters;
+            ForRoommates = dto.ForRoommates;
+            Furnished = dto.Furnished;
+            AirConditioning = dto.AirConditioning;
+            AirDirections = dto.AirDirections;
+            AssetState = dto.AssetState;
+            AssetType = dto.AssetType;
+            AccessibleForDisabled = dto.AccessibleForDisabled;
+            Immediate = dto.Immediate;
+            Flexible = dto.Flexible;
+            LongTerm = dto.LongTerm;
+            MinimumAmount = dto.MinimumAmount;
+            NumberOfPayments = dto.NumberOfPayments;
+            PricePerMeter = dto.PricePerMeter;
+            RearProperty = dto.RearProperty;
+            Renovated = dto.Renovated;
+            SafeRoom = dto.SafeRoom;
+            SolarWaterHeater = dto.SolarWaterHeater;
+            StorageRoom = dto.StorageRoom;
+            TornadoAirConditioner = dto.TornadoAirConditioner;
+            View = dto.View;
+            Video = dto.Video;
+            WindowBars = dto.WindowBars;
+            ContactName = dto.ContactName;
+            ContactPhone = dto.ContactPhone;
+            StandardizationAccepted = dto.StandardizationAccepted;
+        }
     }
 }

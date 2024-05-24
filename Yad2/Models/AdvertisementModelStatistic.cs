@@ -2,5 +2,7 @@
 {
     public class AdvertisementModelStatistic
     {
+
+        public int Id { get; set; }
     }
 }
