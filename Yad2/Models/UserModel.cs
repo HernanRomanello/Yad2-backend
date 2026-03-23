@@ -4,17 +4,26 @@ namespace Yad2.Models
 {
     public class UserModel : IdentityUser
     { 
-        public string Name { get; set; }
-        public string LastName { get; set; }
+        public string ?Name { get; set; }
+        public string ?LastName { get; set; }
 
         public DateTime BirthDate { get; set; }
 
-        public AddressModel Address { get; set; }
-        public int AddressId { get; set; }
-        public string Picture { get; set; }
-        public List<AdvertisementsModel> FavoriteAdvertisements { get; set; }
-        public List<AdvertisementsModel> MyAdvertisements { get; set; }
+        public string ?City { get; set; }
 
-        public List<AdvertisementModelStatistic> Statistics { get; set; }
+        public string ?Street { get; set; }
+
+        public int HouseNumber { get; set; }
+
+        public string ?Picture { get; set; }
+        public List<AdvertisementsModel> ?FavoriteAdvertisements { get; set; }
+        public List<AdvertisementsModel> ?MyAdvertisements { get; set; }
+
+        public AdvertisementModelStatistic ?Statistics { get; set; }
+        public List<LastsearchesModel> Lastsearches { get; set; } = new List<LastsearchesModel>();
+
+        public List<UserNoteModel> ?UserNotes { get; set; }
+
+        
     }
 }

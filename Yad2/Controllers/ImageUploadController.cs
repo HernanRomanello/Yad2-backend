@@ -1,27 +1,63 @@
+using Amazon.S3;
+using Amazon.S3.Model;
 using Microsoft.AspNetCore.Mvc;
 namespace Yad2.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class ImageUploadController : ControllerBase {
+ [Route("api/[controller]")]
+    [ApiController]
+    public class ImageUploadController : ControllerBase
+    {
+        private readonly IAmazonS3 _s3Client;
+        private readonly string _bucketName = "file-upload198974";
 
-    [HttpPost("UploadImage")]
-    public async Task<IActionResult> UploadImage([FromForm] IFormFile photo) {
-        if(photo == null  || photo.Length == 0) {
-            return BadRequest("No File Uploaded");
-        }
-        var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
-        if(!Directory.Exists(uploads)) {
-            Directory.CreateDirectory(uploads);
-        }
-        var filePath = Path.Combine(uploads, photo.FileName);
-
-        using (var fileStream = new FileStream(filePath, FileMode.Create)) {
-            await photo.CopyToAsync(fileStream);
+        public ImageUploadController(IAmazonS3 s3Client)
+        {
+            _s3Client = s3Client;
         }
 
-        var fileUrl = $"{this.Request.Scheme}://{this.Request.Host}/uploads/{photo.FileName}";
+        [HttpPost("UploadImage")]
+        public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("File is empty.");
+            }
 
-        return Ok(new { fileUrl });
+            using var stream = file.OpenReadStream();
+
+            var key = Guid.NewGuid().ToString();
+            var fileName = file.FileName;
+            var contentType = file.ContentType;
+
+            var putRequest = new PutObjectRequest
+            {
+                BucketName = _bucketName,
+                Key = key,
+                InputStream = stream,
+                ContentType = contentType
+            };
+
+            putRequest.Metadata["x-amz-meta-filename"] = fileName;
+            putRequest.Metadata["x-amz-meta-description"] = "Uploaded file";
+
+            try
+            {
+                await _s3Client.PutObjectAsync(putRequest);
+
+                return Ok(new
+                {
+                    FileKey = key
+                });
+            }
+            catch (AmazonS3Exception ex)
+            {
+                Console.WriteLine($"AWS S3 Exception: {ex.Message}");
+                return StatusCode(500, "S3 Upload Failed: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception: {ex.Message}");
+                return StatusCode(500, "File upload failed.");
+            }
+        }
     }
-}

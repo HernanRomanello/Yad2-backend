@@ -1,0 +1,447 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Yad2",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Advertisement/CreateAdvertisement": {
+      "post": {
+        "tags": [
+          "Advertisement"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Advertisement/GetAdvertisement/{id}": {
+      "get": {
+        "tags": [
+          "Advertisement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Advertisement/GetAdvertisements": {
+      "get": {
+        "tags": [
+          "Advertisement"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Advertisement/UpdateAdvertisement/{id}": {
+      "put": {
+        "tags": [
+          "Advertisement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvertisementDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Advertisement/DeleteAdvertisement/{id}": {
+      "delete": {
+        "tags": [
+          "Advertisement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ImageUpload/UploadImage": {
+      "post": {
+        "tags": [
+          "ImageUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ContentType": {
+                    "type": "string"
+                  },
+                  "ContentDisposition": {
+                    "type": "string"
+                  },
+                  "Headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "Length": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "FileName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ContentType": {
+                  "style": "form"
+                },
+                "ContentDisposition": {
+                  "style": "form"
+                },
+                "Headers": {
+                  "style": "form"
+                },
+                "Length": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "FileName": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Users/signup": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddressDto": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "street": {
+            "type": "string",
+            "nullable": true
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "floor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalFloors": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "onPillars": {
+            "type": "boolean"
+          },
+          "neighborhood": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AdvertisementDto": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/AddressDto"
+          },
+          "assetType": {
+            "type": "string",
+            "nullable": true
+          },
+          "assetState": {
+            "type": "string",
+            "nullable": true
+          },
+          "airDirections": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "view": {
+            "type": "string",
+            "nullable": true
+          },
+          "rearProperty": {
+            "type": "boolean"
+          },
+          "accessibleForDisabled": {
+            "type": "boolean"
+          },
+          "airConditioning": {
+            "type": "boolean"
+          },
+          "windowBars": {
+            "type": "boolean"
+          },
+          "solarWaterHeater": {
+            "type": "boolean"
+          },
+          "elevator": {
+            "type": "boolean"
+          },
+          "forRoommates": {
+            "type": "boolean"
+          },
+          "furnished": {
+            "type": "boolean"
+          },
+          "separateUnit": {
+            "type": "boolean"
+          },
+          "kosherKitchen": {
+            "type": "boolean"
+          },
+          "petsAllowed": {
+            "type": "boolean"
+          },
+          "renovated": {
+            "type": "boolean"
+          },
+          "safeRoom": {
+            "type": "boolean"
+          },
+          "multiLockDoors": {
+            "type": "boolean"
+          },
+          "tornadoAirConditioner": {
+            "type": "boolean"
+          },
+          "storageRoom": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfPayments": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "houseCommitteePayment": {
+            "type": "number",
+            "format": "double"
+          },
+          "municipalityMonthlyPropertyTax": {
+            "type": "number",
+            "format": "double"
+          },
+          "builtSquareMeters": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gardenSquareMeters": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalSquareMeters": {
+            "type": "number",
+            "format": "double"
+          },
+          "price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minimumAmount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pricePerMeter": {
+            "type": "number",
+            "format": "double"
+          },
+          "entryDate": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "immediate": {
+            "type": "boolean"
+          },
+          "flexible": {
+            "type": "boolean"
+          },
+          "longTerm": {
+            "type": "boolean"
+          },
+          "pictures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "standardizationAccepted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignUpModel": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

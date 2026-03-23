@@ -11,16 +11,15 @@ public class AdvertisementController : ControllerBase {
 
     private readonly IAdvertisementRepository _repository;
 
-    public AdvertisementController(IAdvertisementRepository repository) {
+    private Yad2Context _context;
+
+    public AdvertisementController(IAdvertisementRepository repository, Yad2Context context) {
         _repository = repository;
+        _context = context;
     }
 
 
-    [HttpPost("CreateAdvertisement")]
-    public async Task<IActionResult> CreateAdvertisement([FromBody] AdvertisementDto dto) {
-        var advertisement = await _repository.CreateAdvertisement(dto);
-        return Ok(advertisement);
-    }
+    
 
     [HttpGet("GetAdvertisement/{id}")]
     public async Task<IActionResult> GetAdvertisement(int id) {
@@ -34,16 +33,7 @@ public class AdvertisementController : ControllerBase {
         return Ok(advertisements);
     }
 
-    [HttpPut("UpdateAdvertisement/{id}")]
-    public async Task<IActionResult> UpdateAdvertisement(int id, [FromBody] AdvertisementDto dto) {
-        var advertisement = await _repository.UpdateAdvertisement(id, dto);
-        return Ok(advertisement);
-    }
+   
 
-    [HttpDelete("DeleteAdvertisement/{id}")]
-    public async Task<IActionResult> DeleteAdvertisement(int id) {
-        await _repository.DeleteAdvertisement(id);
-        return Ok();
-    }
 
 }

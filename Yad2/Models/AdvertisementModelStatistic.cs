@@ -3,6 +3,14 @@
     public class AdvertisementModelStatistic
     {
 
-        public int Id { get; set; }
+        public Guid  Id { get; set; }
+
+        public int ActiveAdvertisement { get; set; }
+
+        public int InactiveAdvertisement { get; set; }
+
+        public int InvalidAdvertisement { get; set; }
+
+        public int AdvertismentPublishedUntilNow { get; set; }
     }
 }

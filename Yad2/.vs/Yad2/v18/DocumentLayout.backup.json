@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\repositories\\advertisementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:repositories\\advertisementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\yad2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:yad2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\data\\yad2context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:data\\yad2context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\models\\picture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:models\\picture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|c:\\users\\herna\\desktop\\yad2 backend\\yad2\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{478C416C-7340-4972-8BBA-A8C135847A60}|Yad2.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdvertisementRepository.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Repositories\\AdvertisementRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\AdvertisementRepository.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Repositories\\AdvertisementRepository.cs",
+              "RelativeToolTip": "Repositories\\AdvertisementRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T23:01:59.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Yad2Context.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Data\\Yad2Context.cs",
+              "RelativeDocumentMoniker": "Data\\Yad2Context.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Data\\Yad2Context.cs",
+              "RelativeToolTip": "Data\\Yad2Context.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:39:21.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:39:21.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Yad2.csproj",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Yad2.csproj",
+              "RelativeDocumentMoniker": "Yad2.csproj",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Yad2.csproj",
+              "RelativeToolTip": "Yad2.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T21:39:21.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAADwvxwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:39:21.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Picture.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Models\\Picture.cs",
+              "RelativeDocumentMoniker": "Models\\Picture.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Models\\Picture.cs",
+              "RelativeToolTip": "Models\\Picture.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:39:21.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\herna\\Desktop\\Yad2 Backend\\Yad2\\Models\\UserModel.cs",
+              "RelativeToolTip": "Models\\UserModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:39:21.678Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

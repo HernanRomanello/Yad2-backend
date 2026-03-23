@@ -3,7 +3,17 @@
 using Yad2.Models;
 
 public class AdvertisementDto {
-         public AddressDto Address { get; set; } // state, city, street, number
+         public string City { get; set; }
+        public string TradeType { get; set; }
+        public string Street { get; set; }
+        public int Number { get; set; }
+        public int Floor { get; set; }
+        public int TotalFloors { get; set; }
+        public bool OnPillars { get; set; }
+        
+        public string Neighborhood { get; set; }
+
+        public string Area { get; set; }
 
          public string AssetType { get; set; }
 
@@ -14,6 +24,29 @@ public class AdvertisementDto {
          public string View { get; set; }
 
          public bool RearProperty { get; set; }
+
+          public string Rooms { get; set; }
+
+         public string ShowerRooms { get; set; } 
+
+        public int PrivateParking { get; set; } 
+        public bool HasPrivateParking { get; set; } 
+
+
+        public bool HasBolcony { get; set; }
+        public bool HasImage { get; set; }    
+        public bool HasPrice { get; set; }    
+        public bool MoshavOrKibutz { get; set; }    
+        public bool needsRenovation { get; set; }    
+        public bool isWellMaintained { get; set; }    
+        public bool isRenovated { get; set; }    
+        public bool isNew { get; set; }    
+        public bool isNewFromBuilder  { get; set; }    
+        public bool PirceDiscount { get; set; }    
+        public bool PublisherIsMiddleMan { get; set; }    
+        public bool PublisherIsContractor { get; set; } 
+
+        public int BalconiesNumber { get; set; }
 
          public bool AccessibleForDisabled { get; set; }  // גישה לנכים
         public bool AirConditioning { get; set; }        // מיזוג
@@ -27,17 +60,23 @@ public class AdvertisementDto {
         public bool PetsAllowed { get; set; }            // חיות מחמד
         public bool Renovated { get; set; }              // משופצת
         public bool SafeRoom { get; set; }               // ממ"ד (מרחב מוגן דירתי)
-        public bool MultiLockDoors { get; set; }         // דלתות רב-בריח
+        public bool MultiLockDoors { get; set; }         // דלתות רב-בריח  
+
+        public bool AirConditioner { get; set; }  // מזגן טורנדו
+
         public bool TornadoAirConditioner { get; set; }  // מזגן טורנדו
         public bool StorageRoom { get; set; }            // מחסן
         public string Description { get; set; }
 
-        public int NumberOfPayments { get; set; }           // מספר תשלומים*
+        public string Furnituredescription { get; set; }
+
+
+        public string NumberOfPayments { get; set; }           // מספר תשלומים*
         public double HouseCommitteePayment { get; set; }   // תשלום לועד בית
         public double MunicipalityMonthlyPropertyTax { get; set; }    // ארנונה לחודשיים
         public int BuiltSquareMeters { get; set; }       // מ"ר בנוי
-        public double GardenSquareMeters { get; set; }      // מ"ר גינה
-        public double TotalSquareMeters { get; set; }       // גודל במ"ר סך הכל*
+        public int GardenSquareMeters { get; set; }      // מ"ר גינה
+        public int TotalSquareMeters { get; set; }       // גודל במ"ר סך הכל*
         public int Price { get; set; }                   // מחיר
         public int MinimumAmount { get; set; }        // סכום מינימלי 100
         public double PricePerMeter { get; set; }           // מחיר למטר
@@ -47,49 +86,20 @@ public class AdvertisementDto {
         public bool LongTerm { get; set; }                  // לטווח ארוך
 
         public List<string> Pictures { get; set; }
+        public string MainPicture { get; set; }
 
         public string Video { get; set; }
+        public int AdSavingRecordNumbers { get; set; }
+        public int AdwatchedRecordNumbers { get; set; }
+        public bool Active { get; set; }=true;
 
         public string ContactName { get; set; }
+        public string SecondContactName { get; set; }
 
         public string ContactPhone { get; set; }
+        public string SecondContactPhone { get; set; }
 
         public bool StandardizationAccepted { get; set; }
 
-        public  AdvertisementsModel ToModel() {
-            DateTime EntryDate = 
-            DateTimeOffset.FromUnixTimeMilliseconds(this.EntryDate).UtcDateTime;
-            return new AdvertisementsModel() {
-            Description = Description,
-            Price = Price,
-            EntryDate = EntryDate,
-            Elevator = Elevator,
-            TotalSquareMeters = TotalSquareMeters,
-            ForRoommates = ForRoommates,
-            Furnished = Furnished,
-            AirConditioning = AirConditioning,
-            AirDirections = AirDirections,
-            AssetState = AssetState,
-            AssetType = AssetType,
-            AccessibleForDisabled = AccessibleForDisabled,
-            Immediate = Immediate,
-            Flexible = Flexible,
-            LongTerm = LongTerm,
-            MinimumAmount = MinimumAmount,
-            NumberOfPayments = NumberOfPayments,
-            PricePerMeter = PricePerMeter,
-            RearProperty = RearProperty,
-            Renovated = Renovated,
-            SafeRoom = SafeRoom,
-            SolarWaterHeater = SolarWaterHeater,
-            StorageRoom = StorageRoom,
-            TornadoAirConditioner = TornadoAirConditioner,
-            View = View,
-            Video = Video,
-            WindowBars = WindowBars,
-            ContactName = ContactName,
-            ContactPhone = ContactPhone,
-            StandardizationAccepted = StandardizationAccepted,
-        };
-        }
+        
 }
