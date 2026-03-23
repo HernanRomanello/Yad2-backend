@@ -29,7 +29,7 @@ namespace Yad2.Controllers
             [HttpPost("signup")]
             public async Task<IActionResult> SignUp([FromBody] SignUpModel signUpModel)
             {
-            var result = await _usersRepository.Singup(signUpModel);
+            var result = await _usersRepository.SignUp(signUpModel);
             if (result.Succeeded)
             {
                 return Ok(result.Succeeded);
@@ -171,7 +171,7 @@ namespace Yad2.Controllers
         {
             string email = User.FindFirstValue(ClaimTypes.Name);
 
-            var user = await _usersRepository.UpdatUser(email,updatedUser);
+            var user = await _usersRepository.UpdateUser(email,updatedUser);
 
             if (user == null) { return BadRequest(); }
 

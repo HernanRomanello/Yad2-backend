@@ -29,44 +29,22 @@ namespace Yad2.Repositories
             _context = context;
         }
 
-        public async Task<IdentityResult> Singup(SignUpModel signupModel)
+        public async Task<IdentityResult> SignUp(SignUpModel signupModel)
         {
+            UserModel user = new UserModel();
+
+            user.UserName = signupModel.Email;
+            user.Email = signupModel.Email;
 
 
+            user.Statistics = new AdvertisementModelStatistic();
 
+            user.FavoriteAdvertisements = new List<AdvertisementsModel>();
+            user.MyAdvertisements = new List<AdvertisementsModel>();
+            user.LastSearches = new List<LastSearchesModel>();
+            user.UserNotes = new List<UserNoteModel>();
 
-            UserModel User = new()
-            {
-                UserName = signupModel.Email,
-                Email = signupModel.Email,
-                Name = "",
-                LastName = "",
-                BirthDate = DateTime.Now,
-                City = "",
-                Street = "",
-                HouseNumber = 0,
-                Picture = "",
-                FavoriteAdvertisements = new List<AdvertisementsModel>(),
-                MyAdvertisements = new List<AdvertisementsModel>(),
-                Statistics = new AdvertisementModelStatistic(),
-                LastSearches = new List<LastSearchesModel>(),
-                UserNotes = new List<UserNoteModel>()
-
-            };
-
-            var statistics = new AdvertisementModelStatistic()
-            {
-                Id = Guid.Parse(User.Id.ToString()),
-                ActiveAdvertisement = 0,
-                InactiveAdvertisement = 0,
-                InvalidAdvertisement = 0,
-                AdvertisementPublishedUntilNow = 0
-            };
-
-            User.Statistics = statistics;
-
-
-            var result = await _userManager.CreateAsync(User, signupModel.Password);
+            var result = await _userManager.CreateAsync(user, signupModel.Password);
 
             if (result.Succeeded)
             {
@@ -79,9 +57,8 @@ namespace Yad2.Repositories
         public async Task<UserModel> GetUserByEmail(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
-            return user;
-
-            
+            return user ?? new UserModel();
+           
         }
 
         public async Task<List<AdvertisementsModel>> GetUserAdvertisementsByEmail(string email)
@@ -97,10 +74,10 @@ namespace Yad2.Repositories
 
             return user.MyAdvertisements?.ToList() ?? new List<AdvertisementsModel>();
         }
-
-
-
         public async Task<AdvertisementModelStatistic> GetUserAdvertisementsStatistic(string email)
+
+
+
         {
             var user = await _context.Users
                .Where(u => u.Email == email)
@@ -114,9 +91,6 @@ namespace Yad2.Repositories
             return user.Statistics ?? new AdvertisementModelStatistic();
 
         }
-
-
-
         public void SetJwtCookie(HttpResponse response, UserModel user)
         {
             var authClaims = new[]
@@ -148,11 +122,9 @@ namespace Yad2.Repositories
 
             });
 
-
-
         }
-
         public async Task<AdvertisementsModel> CreateAdvertisement(AdvertisementDto dto, string email)
+
         {
             var advertisement = new AdvertisementsModel()
             {
@@ -250,7 +222,6 @@ namespace Yad2.Repositories
                 user.Statistics.ActiveAdvertisement = statistics.ActiveAdvertisement + 1;
             }
 
-
             await _context.SaveChangesAsync();
 
             var pictures = dto.Pictures.Select(p => new Picture()
@@ -258,7 +229,6 @@ namespace Yad2.Repositories
                 Url = p,
                 AdvertisementModelId = advertisement.Id
             }).ToList();
-
 
             _context.Pictures.AddRange(pictures);
 
@@ -290,7 +260,6 @@ namespace Yad2.Repositories
             await _context.SaveChangesAsync();
             return advertisement;
         }
-
         public async Task<AdvertisementsModel> DeleteAdvertisement(int id, string email)
         {
             var user = await GetUserByEmail(email);
@@ -325,19 +294,16 @@ namespace Yad2.Repositories
             await _context.SaveChangesAsync();
             return advertisement;
         }
-
-
-
         public async Task<AdvertisementsModel> AddAdvertisementToFavorite(int id, string email)
-        {
 
+
+
+        {
             var user = await GetUserByEmail(email);
             var advertisement = await _context.Advertisements
                 .Include(a => a.Pictures)
                 .FirstOrDefaultAsync(a => a.Id == id)
           ?? throw new Exception("Advertisement not found");
-
-
 
             if (user.FavoriteAdvertisements == null)
             {
@@ -347,8 +313,11 @@ namespace Yad2.Repositories
             await _context.SaveChangesAsync();
             return advertisement;
         }
-
         public async Task<LastSearchesModel> AddSearchInput(string email, LastSearchDto lastSearchDto)
+
+
+
+
         {
 
             var user = await GetUserByEmail(email);
@@ -357,7 +326,6 @@ namespace Yad2.Repositories
             {
                 Id = new Guid(),
                 UserId = user.Id,
-
                 CreationDate = DateTime.Now,
                 MinuteOfCreation = DateTime.Now.Minute,
                 HourOfCreation = DateTime.Now.Hour,
@@ -382,7 +350,6 @@ namespace Yad2.Repositories
                 HasWindowBars = lastSearchDto.HasWindowBars,
                 HasElevator = lastSearchDto.HasElevator,
                 MinFloor = lastSearchDto.MinFloor,
-
                 MaxFloor = lastSearchDto.MaxFloor,
                 ForRoommates = lastSearchDto.ForRoommates,
                 HasFurnished = lastSearchDto.HasFurnished,
@@ -395,9 +362,6 @@ namespace Yad2.Repositories
                 MinSquareSize = lastSearchDto.MinSquareSize,
                 MaxSquareSize = lastSearchDto.MaxSquareSize,
                 HasStorageRoom = lastSearchDto.HasStorageRoom
-
-
-
             };
 
 
@@ -412,16 +376,15 @@ namespace Yad2.Repositories
 
             return SearchInput;
         }
-
         public async Task<LastSearchesModel> RemoveSearchInput(Guid id)
-        {
 
-            var LastSearche = _context.LastSearches.FirstOrDefault(l => l.Id == id) ?? throw new Exception("Search not found");
-          
-            _context.LastSearches.Remove(LastSearche);
+        {
+            var LastSearch = _context.LastSearches.FirstOrDefault(l => l.Id == id) ?? throw new Exception("Search not found");
+        
+            _context.LastSearches.Remove(LastSearch);
             await _context.SaveChangesAsync();
 
-            return LastSearche;
+            return LastSearch;
         }
 
         public async Task<List<LastSearchesModel>> RemoveAllUserSearches(string email)
@@ -442,11 +405,7 @@ namespace Yad2.Repositories
 
         public async Task<List<LastSearchesModel>> GetSearchesList(string email)
         {
-
-
             var user = await GetUserByEmail(email);
-
-
 
             var LastSearches = await _context.LastSearches
                 .Where(u => u.UserId == user.Id)
@@ -461,12 +420,10 @@ namespace Yad2.Repositories
 
         public async Task<List<AdvertisementsModel>> GetFavoriteAdvertisements(string email)
         {
-
-            var user = await _context.Users
+            var user = await _context?.Users
                 .Include(u => u.FavoriteAdvertisements)
                 .ThenInclude(a => a.Pictures)
                 .FirstOrDefaultAsync(u => u.Email == email) ?? throw new InvalidOperationException("User not found");
-
 
             return user.FavoriteAdvertisements?.ToList() ?? new List<AdvertisementsModel>();
         }
@@ -483,8 +440,7 @@ namespace Yad2.Repositories
             }
 
             var SearchAdvertising = user.FavoriteAdvertisements?.FirstOrDefault(a => a.Id == id) ?? throw new Exception("Advertisement not found"); ;
-          
-
+       
             user.FavoriteAdvertisements?.Remove(advertisement);
             await _context.SaveChangesAsync();
             return advertisement;
@@ -496,9 +452,7 @@ namespace Yad2.Repositories
             var advertisement = await _context.Advertisements
                 .Include(a => a.Pictures)
                 .FirstOrDefaultAsync(a => a.Id == id) ?? throw new Exception("Advertisement not found");
-
-          
-
+         
             var userFavorites = await this.GetFavoriteAdvertisements(email);
             if (userFavorites == null)
             {
@@ -548,9 +502,6 @@ namespace Yad2.Repositories
 
             return note;
         }
-
-
-
         public async Task<List<UserNoteDto>> GetUserNotes(string email)
         {
             var user = await _context.Users
@@ -570,8 +521,8 @@ namespace Yad2.Repositories
 
             return userNotes;
         }
+        public async Task<UserModel> UpdateUser(string email, UserUpdateDto userUpdate)
 
-        public async Task<UserModel> UpdatUser(string email, UserUpdateDto userUpdate)
         {
 
             var user = await _userManager.FindByEmailAsync(email);
@@ -601,9 +552,7 @@ namespace Yad2.Repositories
         }
 
     }
-    public class lastSearchDto
-    {
-    }
+  
 }
 
         

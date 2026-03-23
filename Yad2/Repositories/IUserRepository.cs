@@ -23,8 +23,8 @@ namespace Yad2.Repositories
         Task<AdvertisementsModel> RemoveFavorite(int id, string email);
         Task<LastSearchesModel> RemoveSearchInput(Guid id);
         void SetJwtCookie(HttpResponse response, UserModel user);
-        Task<IdentityResult> Singup(SignUpModel signupModel);
+        Task<IdentityResult> SignUp(SignUpModel signupModel);
         Task<AdvertisementsModel> UpdateAdvertisement(int id, AdvertisementDto dto);
-        Task<UserModel> UpdatUser(string email, UserUpdateDto userUpdate);
+        Task<UserModel> UpdateUser(string email, UserUpdateDto userUpdate);
     }
 }
