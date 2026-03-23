@@ -20,7 +20,7 @@ namespace Yad2.Models
         public List<AdvertisementsModel> ?MyAdvertisements { get; set; }
 
         public AdvertisementModelStatistic ?Statistics { get; set; }
-        public List<LastsearchesModel> Lastsearches { get; set; } = new List<LastsearchesModel>();
+        public List<LastSearchesModel> LastSearches { get; set; } = new List<LastSearchesModel>();
 
         public List<UserNoteModel> ?UserNotes { get; set; }
 

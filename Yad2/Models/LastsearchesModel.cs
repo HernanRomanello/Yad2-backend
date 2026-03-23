@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Yad2.Models
 {
-    public class LastsearchesModel
+    public class LastSearchesModel
     {
         [Key]
          public Guid Id { get; set; }

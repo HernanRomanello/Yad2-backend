@@ -49,7 +49,7 @@ namespace Yad2.Repositories
                 FavoriteAdvertisements = new List<AdvertisementsModel>(),
                 MyAdvertisements = new List<AdvertisementsModel>(),
                 Statistics = new AdvertisementModelStatistic(),
-                Lastsearches = new List<LastsearchesModel>(),
+                LastSearches = new List<LastSearchesModel>(),
                 UserNotes = new List<UserNoteModel>()
 
             };
@@ -348,12 +348,12 @@ namespace Yad2.Repositories
             return advertisement;
         }
 
-        public async Task<LastsearchesModel> AddSearchInput(string email, LastsearcheDto lastsearchesDto)
+        public async Task<LastSearchesModel> AddSearchInput(string email, LastsearcheDto lastsearchesDto)
         {
 
             var user = await GetUserByEmail(email);
 
-            var SearchInput = new LastsearchesModel()
+            var SearchInput = new LastSearchesModel()
             {
                 Id = new Guid(),
                 UserId = user.Id,
@@ -403,7 +403,7 @@ namespace Yad2.Repositories
 
             if (SearchInput == null)
             {
-                SearchInput = new LastsearchesModel();
+                SearchInput = new LastSearchesModel();
             }
 
             _context.LastSearches.Add(SearchInput);
@@ -413,7 +413,7 @@ namespace Yad2.Repositories
             return SearchInput;
         }
 
-        public async Task<LastsearchesModel> RemoveSearchInput(Guid id)
+        public async Task<LastSearchesModel> RemoveSearchInput(Guid id)
         {
 
             var LastSearche = _context.LastSearches.FirstOrDefault(l => l.Id == id) ?? throw new Exception("Search not found");
@@ -424,7 +424,7 @@ namespace Yad2.Repositories
             return LastSearche;
         }
 
-        public async Task<List<LastsearchesModel>> RemoveAllUserSearches(string email)
+        public async Task<List<LastSearchesModel>> RemoveAllUserSearches(string email)
         {
             var user = await GetUserByEmail(email);
 
@@ -440,10 +440,9 @@ namespace Yad2.Repositories
             return LastSearches;
         }
 
-        public async Task<List<LastsearchesModel>> GetSearchesList(string email)
+        public async Task<List<LastSearchesModel>> GetSearchesList(string email)
         {
 
-            // if (string.IsNullOrEmpty(email)) return null;
 
             var user = await GetUserByEmail(email);
 
