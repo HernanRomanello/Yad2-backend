@@ -7,7 +7,7 @@ https://www.yad2-demo-dev.online/
 https://github.com/HernanRomanello/Yad2-frontend
 
 **Backend Repository**  
-https://github.com/HernanRomanello/Yad2--backend
+https://github.com/HernanRomanello/Yad2-backend
 
 ---
 
