@@ -60,7 +60,7 @@ namespace Yad2.Repositories
                 ActiveAdvertisement = 0,
                 InactiveAdvertisement = 0,
                 InvalidAdvertisement = 0,
-                AdvertismentPublishedUntilNow = 0
+                AdvertisementPublishedUntilNow = 0
             };
 
             User.Statistics = statistics;
@@ -177,7 +177,7 @@ namespace Yad2.Repositories
                 PrivateParking = dto.PrivateParking,
                 HasPrivateParking = dto.HasPrivateParking,
 
-                HasBolcony = dto.HasBolcony,
+                HasBalcony = dto.HasBalcony,
                 HasImage = dto.HasImage,
                 HasPrice = dto.HasPrice,
                 MoshavOrKibutz = dto.MoshavOrKibutz,
@@ -186,7 +186,7 @@ namespace Yad2.Repositories
                 isRenovated = dto.isRenovated,
                 isNew = dto.isNew,
                 isNewFromBuilder = dto.isNewFromBuilder,
-                PirceDiscount = dto.PirceDiscount,
+                PriceDiscount = dto.PriceDiscount,
                 PublisherIsMiddleMan = dto.PublisherIsMiddleMan,
                 PublisherIsContractor = dto.PublisherIsContractor,
                 BalconiesNumber = dto.BalconiesNumber,
@@ -197,7 +197,7 @@ namespace Yad2.Repositories
                 Elevator = dto.Elevator,
                 ForRoommates = dto.ForRoommates,
                 Furnished = dto.Furnished,
-                Furnituredescription = dto.Furnituredescription,
+                FurnitureDescription = dto.FurnitureDescription,
                 SeparateUnit = dto.SeparateUnit,
                 KosherKitchen = dto.KosherKitchen,
                 PetsAllowed = dto.PetsAllowed,
@@ -246,7 +246,7 @@ namespace Yad2.Repositories
             }
             if (statistics != null)
             {
-                user.Statistics.AdvertismentPublishedUntilNow = statistics.AdvertismentPublishedUntilNow + 1;
+                user.Statistics.AdvertisementPublishedUntilNow = statistics.AdvertisementPublishedUntilNow + 1;
                 user.Statistics.ActiveAdvertisement = statistics.ActiveAdvertisement + 1;
             }
 
@@ -348,7 +348,7 @@ namespace Yad2.Repositories
             return advertisement;
         }
 
-        public async Task<LastSearchesModel> AddSearchInput(string email, LastsearcheDto lastsearchesDto)
+        public async Task<LastSearchesModel> AddSearchInput(string email, LastSearchDto lastSearchDto)
         {
 
             var user = await GetUserByEmail(email);
@@ -364,37 +364,37 @@ namespace Yad2.Repositories
                 DayOfCreation = DateTime.Now.Day,
                 MonthOfCreation = DateTime.Now.Month,
                 YearOfCreation = DateTime.Now.Year,
-                City = lastsearchesDto.City,
-                Neighborhood = lastsearchesDto.Neighborhood,
-                ForSale = lastsearchesDto.ForSale,
-                ForRent = lastsearchesDto.ForRent,
-                MoshavOrKibuutz = lastsearchesDto.MoshavOrKibuutz,
-                AssetType = lastsearchesDto.AssetType,
-                MinRooms = lastsearchesDto.MinRooms,
-                MaxRooms = lastsearchesDto.MaxRooms,
-                MinPrice = lastsearchesDto.MinPrice,
-                MaxPrice = lastsearchesDto.MaxPrice,
-                HasImmediateEntry = lastsearchesDto.HasImmediateEntry,
-                HasAccessibleForDisabled = lastsearchesDto.HasAccessibleForDisabled,
-                HasAirConditioner = lastsearchesDto.HasAirConditioner,
-                HasExclusivity = lastsearchesDto.HasExclusivity,
-                HasBolcony = lastsearchesDto.HasBalcony,
-                HaswindowBars = lastsearchesDto.HasWindowBars,
-                HasElevator = lastsearchesDto.HasElevator,
-                MinFloor = lastsearchesDto.MinFloor,
+                City = lastSearchDto.City,
+                Neighborhood = lastSearchDto.Neighborhood,
+                ForSale = lastSearchDto.ForSale,
+                ForRent = lastSearchDto.ForRent,
+                MoshavOrKibuutz = lastSearchDto.MoshavOrKibuutz,
+                AssetType = lastSearchDto.AssetType,
+                MinRooms = lastSearchDto.MinRooms,
+                MaxRooms = lastSearchDto.MaxRooms,
+                MinPrice = lastSearchDto.MinPrice,
+                MaxPrice = lastSearchDto.MaxPrice,
+                HasImmediateEntry = lastSearchDto.HasImmediateEntry,
+                HasAccessibleForDisabled = lastSearchDto.HasAccessibleForDisabled,
+                HasAirConditioner = lastSearchDto.HasAirConditioner,
+                HasExclusivity = lastSearchDto.HasExclusivity,
+                HasBalcony = lastSearchDto.HasBalcony,
+                HasWindowBars = lastSearchDto.HasWindowBars,
+                HasElevator = lastSearchDto.HasElevator,
+                MinFloor = lastSearchDto.MinFloor,
 
-                MaxFloor = lastsearchesDto.MaxFloor,
-                ForRoommates = lastsearchesDto.ForRoommates,
-                HasFurnished = lastsearchesDto.HasFurnished,
-                HasPrivateParking = lastsearchesDto.HasPrivateParking,
-                PetsAllowed = lastsearchesDto.PetsAllowed,
-                HasPrice = lastsearchesDto.HasPrice,
-                HasImage = lastsearchesDto.HasImage,
-                IsRenovated = lastsearchesDto.IsRenovated,
-                HasSafeRoom = lastsearchesDto.HasSafeRoom,
-                MinSquareSize = lastsearchesDto.MinSquareSize,
-                MaxSquareSize = lastsearchesDto.MaxSquareSize,
-                HasStorageRoom = lastsearchesDto.HasStorageRoom
+                MaxFloor = lastSearchDto.MaxFloor,
+                ForRoommates = lastSearchDto.ForRoommates,
+                HasFurnished = lastSearchDto.HasFurnished,
+                HasPrivateParking = lastSearchDto.HasPrivateParking,
+                PetsAllowed = lastSearchDto.PetsAllowed,
+                HasPrice = lastSearchDto.HasPrice,
+                HasImage = lastSearchDto.HasImage,
+                IsRenovated = lastSearchDto.IsRenovated,
+                HasSafeRoom = lastSearchDto.HasSafeRoom,
+                MinSquareSize = lastSearchDto.MinSquareSize,
+                MaxSquareSize = lastSearchDto.MaxSquareSize,
+                HasStorageRoom = lastSearchDto.HasStorageRoom
 
 
 
@@ -601,7 +601,7 @@ namespace Yad2.Repositories
         }
 
     }
-    public class LastsearchesDto
+    public class lastSearchDto
     {
     }
 }

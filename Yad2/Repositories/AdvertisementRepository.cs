@@ -19,8 +19,6 @@ public class AdvertisementRepository : IAdvertisementRepository
         context = _context;
     }
 
-
-
     public async Task<AdvertisementsModel> GetAdvertisement(int id)
     {
         var advertisement = await context.Advertisements

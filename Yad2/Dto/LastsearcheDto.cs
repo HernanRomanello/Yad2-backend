@@ -1,6 +1,6 @@
 ﻿namespace Yad2.Dto
 {
-    public class LastsearcheDto
+    public class LastSearchDto
     {
      public string ?City { get; set; }
     public string ?Neighborhood { get; set; }    

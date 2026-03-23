@@ -9,7 +9,7 @@ namespace Yad2.Repositories
     {
         Task<AdvertisementsModel> AddAdvertisementToFavorite(int id, string email);
         Task<AdvertisementsModel> AddOrRemoveFavorite(int id, string email);
-        Task<LastSearchesModel> AddSearchInput(string email, LastsearcheDto lastsearchesDto);
+        Task<LastSearchesModel> AddSearchInput(string email, LastSearchDto lastsearchesDto);
         Task<AdvertisementsModel> CreateAdvertisement(AdvertisementDto dto, string email);
         Task<UserNoteModel> CreateNoteForUser(string email, UserNoteDto userNote);
         Task<AdvertisementsModel> DeleteAdvertisement(int id, string email);

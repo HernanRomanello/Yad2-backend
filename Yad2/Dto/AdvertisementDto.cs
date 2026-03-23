@@ -32,7 +32,7 @@ public class AdvertisementDto
     public bool HasPrivateParking { get; set; }
     public int PrivateParking { get; set; }
 
-    public bool HasBolcony { get; set; }
+    public bool HasBalcony { get; set; }
     public int BalconiesNumber { get; set; }
 
     // Property condition flags
@@ -47,7 +47,7 @@ public class AdvertisementDto
     public bool HasPrice { get; set; }
     public bool MoshavOrKibutz { get; set; }
 
-    public bool PirceDiscount { get; set; }
+    public bool PriceDiscount { get; set; }
 
     public bool PublisherIsMiddleMan { get; set; }
     public bool PublisherIsContractor { get; set; }
@@ -77,7 +77,7 @@ public class AdvertisementDto
 
     // Description
     public string Description { get; set; } = "";
-    public string Furnituredescription { get; set; } = "";
+    public string FurnitureDescription { get; set; } = "";
 
     // Payments
     public string NumberOfPayments { get; set; } = "";
@@ -103,7 +103,7 @@ public class AdvertisementDto
 
     // Stats
     public int AdSavingRecordNumbers { get; set; }
-    public int AdwatchedRecordNumbers { get; set; }
+    public int AdWatchedRecordNumbers { get; set; }
 
     public bool Active { get; set; } = true;
 

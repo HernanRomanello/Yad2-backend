@@ -11,6 +11,6 @@
 
         public int InvalidAdvertisement { get; set; }
 
-        public int AdvertismentPublishedUntilNow { get; set; }
+        public int AdvertisementPublishedUntilNow { get; set; }
     }
 }

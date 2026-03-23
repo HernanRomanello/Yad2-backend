@@ -180,10 +180,10 @@ namespace Yad2.Controllers
 
         [HttpPost("user/AddLastSearch")]
         [Authorize]
-        public async Task<IActionResult> AddLastsearch([FromBody] LastsearcheDto lastsearcheDto)
+        public async Task<IActionResult> AddLastsearch([FromBody] LastSearchDto lastSearchDto)
         {
             string email = User.FindFirstValue(ClaimTypes.Name);
-            var lastsearch = await _usersRepository.AddSearchInput(email,lastsearcheDto);
+            var lastsearch = await _usersRepository.AddSearchInput(email,lastSearchDto);
             return Ok(lastsearch);
         }
 

@@ -41,8 +41,8 @@ namespace Yad2.Models
         public bool HasAccessibleForDisabled { get; set; }
         public bool HasAirConditioner { get; set; }
         public bool HasExclusivity { get; set; }
-        public bool HasBolcony { get; set; }
-        public bool HaswindowBars { get; set; }
+        public bool HasBalcony { get; set; }
+        public bool HasWindowBars { get; set; }
         public bool HasElevator { get; set; }
 
         public int MinFloor { get; set; }
@@ -61,38 +61,6 @@ namespace Yad2.Models
         public int MaxSquareSize { get; set; }
 
         public bool HasStorageRoom { get; set; }
-
-
-
-
-
-
-
-
-        // public bool NewFromContractor { get; set; }
-
-        // public bool New { get; set; }
-
-        // public bool Renovated { get; set; }
-
-        // public bool GoodCondition { get; set; }
-
-        // public bool RenovatedNedded { get; set; }
-
-        // public int MinFloor { get; set; }
-
-        // public int MaxFloor { get; set; }
-
-        // public int MinSquareMeters { get; set; }
-
-        // public int MaxSquareMeters { get; set; }
-
-        // public DateTime EntryDate { get; set; }
-
-
-        // public string ?FreeSearch { get; set; }
-
-
 
     }
 }

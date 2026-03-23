@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Yad2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd7e9670980b1ea46b83e04f13999303be49f4b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11bb643822ece5d5b53b7ff8108864baaebb03d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Yad2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Yad2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

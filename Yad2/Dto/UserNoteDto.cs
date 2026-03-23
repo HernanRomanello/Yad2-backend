@@ -6,6 +6,6 @@
 
         public int  AdID  {get;set;}
 
-        public string Note { get; set; }
+        public string Note { get; set; } ="";
     }
 }
