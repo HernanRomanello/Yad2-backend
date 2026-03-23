@@ -3,7 +3,6 @@
     public class LastsearcheDto
     {
      public string ?City { get; set; }
-
     public string ?Neighborhood { get; set; }    
     public bool ForSale { get; set; }
     public bool ForRent { get; set; }
