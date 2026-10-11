@@ -1,8 +1,5 @@
 # 🏠 Yad2 – Full Stack Real Estate Platform
 
-## Live Demo
-https://www.yad2-demo-dev.online/
-
 ## Frontend Repository
 https://github.com/HernanRomanello/Yad2-frontend
 
